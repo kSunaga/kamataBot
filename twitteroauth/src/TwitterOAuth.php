@@ -4,7 +4,7 @@
  *
  * @license MIT
  */
-namespace TwitterOAuth;
+namespace Abraham\TwitterOAuth;
 
 use Abraham\TwitterOAuth\Util\JsonDecoder;
 

@@ -1,6 +1,6 @@
 <?PHP
-$consumerKey = '5WcZFXlCgt4W**********PRiXh';
-$consumerSecret = 'RxfZ*********qyv9DSZXf3rTa3ZeSTApy3JEfeBnmswacNph';
-$accessToken = '2517489452-iJkLo0S*********1eOQEy30AhP2DglRtNpuO';
-$accessTokenSecret = '**********nfkYEtqSKXiaCQ93QCrvAjXhc6evcEXx5DCo';
+$consumerKey = 'a6buAxyIQrO6S80EpMqfoqWk1';
+$consumerSecret = 'rkefWHDFNLzC36k12lt5Y7GVbxAeIzRDtwlJEql7xHFt1u0BWV';
+$accessToken = '938360654993408000-ZLnC1rtJbZT70oltxoG1U58AS7D5N62';
+$accessTokenSecret = '0xiYso88auqQWB8qgoz4l1gs2UVO1Jyrc5xDy0YDyUYi2';
 ?>
