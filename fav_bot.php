@@ -10,7 +10,24 @@ use Abraham\TwitterOAuth\TwitterOAuth;
 //twitterと連結
 $TwitterOAuth = new TwitterOAuth($consumerKey,$consumerSecret,$accessToken,$accessTokenSecret);
 
-    $res = $TwitterOAuth->post("statuses/update", array("status" => "bot用テスツイート"));
+    $favkeyword = "カービィ";   
+    $favcount = 5;
 
-    var_dump($TwitterOAuth);
+    //キーワード検索
+    $keywords = $TwitterOAuth->get('search/tweets',array('q' => $favkeyword, 'count' => $favcount ))->statuses;
 
+    foreach ($keywords as $key ){
+
+        $id = $key->id;
+
+        $res = $TwitterOAuth->post("favorites/create",['id' => $id ]);
+
+        // var_dump($key->id);
+    }
+
+        $tweets = $TwitterOAuth->post("statuses/update", ['status'=> "${favkeyword}の文字を含むツイートを${favcount}件Botによってファボしました"]);
+
+
+
+    
+?>
