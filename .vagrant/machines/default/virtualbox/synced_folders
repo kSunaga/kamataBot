@@ -1,1 +1,1 @@
-{"virtualbox":{"/vagrant":{"guestpath":"/vagrant","hostpath":"/Users/joker/Documents/school/kamatabot","disabled":false,"__vagrantfile":true}}}
+{"virtualbox":{"/var/www/html":{"guestpath":"/var/www/html","hostpath":"/Users/joker/Documents/Company/school/kamataBot","disabled":false,"__vagrantfile":true},"/vagrant":{"guestpath":"/vagrant","hostpath":"/Users/joker/Documents/Company/school/kamataBot","disabled":false,"__vagrantfile":true}}}

@@ -12,8 +12,8 @@ use Abraham\TwitterOAuth\TwitterOAuth;
 $TwitterOAuth = new TwitterOAuth($consumerKey,$consumerSecret,$accessToken,$accessTokenSecret);
 
 
-    $favkeyword = "アパマンショップ";   
-    $favcount = 8;
+    $favkeyword = "ドラミ";   
+    $favcount = 2;
 
 
     //キーワード検索
