@@ -1,10 +1,10 @@
 
 <?php
 // TwitterOAuth呼び出し
-require "twitteroauth/autoload.php";
+require "../twitteroauth/autoload.php";
 
 // api設定ファイル呼び出し
-require_once("apiconfig.php");
+require_once("../apiconfig.php");
 
 use Abraham\TwitterOAuth\TwitterOAuth;
 
@@ -12,12 +12,13 @@ use Abraham\TwitterOAuth\TwitterOAuth;
 $TwitterOAuth = new TwitterOAuth($consumerKey,$consumerSecret,$accessToken,$accessTokenSecret);
 
 
-    $favkeyword = "ドラミ";   
-    $favcount = 2;
-
+    $favkeyword = "アパマン";   
+    $favcount = 10;
 
     //キーワード検索
     $keywords = $TwitterOAuth->get('search/tweets',array('q' => $favkeyword, 'count' => $favcount ))->statuses;
+
+    echo $keywords;
 
 
     foreach ($keywords as $key ){
@@ -25,8 +26,9 @@ $TwitterOAuth = new TwitterOAuth($consumerKey,$consumerSecret,$accessToken,$acce
         $id = $key->id;
         $res = $TwitterOAuth->post("favorites/create",['id' => $id ]);
         
-        // var_dump($key->id);
+        echo $key->id;
     }
         $tweets = $TwitterOAuth->post("statuses/update", ['status'=> "${favkeyword}の文字を含むツイートを${favcount}件Botによってファボしました"]);
-    
+
+
 ?>
