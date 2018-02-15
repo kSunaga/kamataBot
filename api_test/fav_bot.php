@@ -12,23 +12,37 @@ use Abraham\TwitterOAuth\TwitterOAuth;
 $TwitterOAuth = new TwitterOAuth($consumerKey,$consumerSecret,$accessToken,$accessTokenSecret);
 
 
-    $favkeyword = "アパマン";   
-    $favcount = 10;
+    $favkeyword = "アンパンマン";   
+    $favcount = 5;
 
+
+    $user_info = $TwitterOAuth->get('users/show', array('screen_name'=> 'Anqe_Joker'));
+
+    
     //キーワード検索
     $keywords = $TwitterOAuth->get('search/tweets',array('q' => $favkeyword, 'count' => $favcount ))->statuses;
-
-    echo $keywords;
 
 
     foreach ($keywords as $key ){
 
         $id = $key->id;
-        $res = $TwitterOAuth->post("favorites/create",['id' => $id ]);
-        
-        echo $key->id;
+
+        if($userId == $key->user->id_str)
+        {
+            $res = $TwitterOAuth->post("favorites/create",['id' => $id ]);
+        }
+
     }
-        $tweets = $TwitterOAuth->post("statuses/update", ['status'=> "${favkeyword}の文字を含むツイートを${favcount}件Botによってファボしました"]);
+
+    if(isset($res)){
+
+        $tweets = $TwitterOAuth->post("statuses/update", ['status'=> "アカウントのツイートを${favkeyword}Botによってツイートしました"]);
+    
+    }else{
+
+        $tweets = $TwitterOAuth->post("statuses/update", ['status'=> "${favkeyword}の文字はツイートされていないよ！"]);
+
+    }
 
 
 ?>
