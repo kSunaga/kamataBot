@@ -11,24 +11,25 @@ use Abraham\TwitterOAuth\TwitterOAuth;
 //twitterと連結
 $TwitterOAuth = new TwitterOAuth($consumerKey,$consumerSecret,$accessToken,$accessTokenSecret);
 
+    //検索キーワード指定
+    $favkeyword = "かまトゥー";
 
-    $favkeyword = "アパマン";   
-    $favcount = 10;
-
+    //検索数を指定
+    $favcount = 50;
+    
     //キーワード検索
     $keywords = $TwitterOAuth->get('search/tweets',array('q' => $favkeyword, 'count' => $favcount ))->statuses;
 
-    echo $keywords;
-
-
+    //キーワードを取得してuserIdがツイート用のアカウントだった場合、そのツイートにリプライを返す
     foreach ($keywords as $key ){
 
-        $id = $key->id;
-        $res = $TwitterOAuth->post("favorites/create",['id' => $id ]);
-        
-        echo $key->id;
-    }
-        $tweets = $TwitterOAuth->post("statuses/update", ['status'=> "${favkeyword}の文字を含むツイートを${favcount}件Botによってファボしました"]);
+        if($userId == $key->user->id_str)
+        {
+            $id = $key->id;
+            $res = $TwitterOAuth->post("favorites/create",['id' => $id ]);
+            $tweets = $TwitterOAuth->post("statuses/update", array('status' => "@nihonkogakuin_ かまトゥだよ！", 'in_reply_to_status_id' => $id ));
+        }
 
+    }
 
 ?>
