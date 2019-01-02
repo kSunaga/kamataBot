@@ -1,0 +1,2 @@
+Twitter内にて任意のツイートに反応し、likeやfavをつけられる。
+特定ユーザへのmensionも可能
